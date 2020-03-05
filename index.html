@@ -4,12 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".check").click(function () {
+                $(".myCheck").prop("checked", true);
+            });
+            $(".uncheck").click(function () {
+                $(".myCheck").prop("checked", false);
+            });
+        });
+    </script>
 
     <title>jQuery project</title>
 </head>
 
 <body>
-    <h1>Hej!</h1>
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                <h1>jQuery Project</h1>
+
+                <h4>By Christian Berglönn</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-8">
+                <h3>Input</h3>
+                <button type="button" class="btn btn-primary">Blue</button>
+                <button type="button" class="btn btn-secondary" style="background-color: red">Red</button><br><br>
+                <button type="button" class="btn btn-primary"
+                    style="background-color: yellow; color: black">Yellow</button>
+                <button type="button" class="btn btn-secondary" style="background-color: orange">Orange</button><br><br>
+                <button type="button" class="btn btn-primary" style="background-color: green">Green</button>
+                <button type="button" class="btn btn-secondary" style="background-color: purple">Purple</button><br><br>
+                <button type="button" class="btn btn-primary" style="background-color: pink">Pink</button>
+                <button type="button" class="btn btn-secondary"
+                    style="background-color: magenta">Magenta</button><br><br>
+                <button type="button" class="btn btn-primary" style="background-color: grey">Grey</button>
+                <button type="button" class="btn btn-secondary" style="background-color: black">Black</button><br><br>
+                <button type="button" class="btn btn-primary btn-lg btn-block">Clear</button><br>
+                <form>
+                    <label for="fname">Text</label>
+                    <input type="text" id="fname" name="fname" placeholder="Enter something"><input type="submit"
+                        value="Apply">
+                </form>
+            </div>
+
+
+            <div class="col-4">
+                <h3>Output</h3>
+                <button type="button" class="btn btn-primary check">Select All</button>
+                <button type="button" class="btn btn-secondary uncheck">Clear</button>
+                <ul>
+                    <li><span><input class="myCheck" type="checkbox" name="colors" value="blue">Blue</span></li>
+                    <li><span><input class="myCheck" type="checkbox" name="colors" value="red">Red</span></li>
+                    <li><span><input class="myCheck" type="checkbox" name="colors" value="yellow">Yellow</span></li>
+                    <li><span><input class="myCheck" type="checkbox" name="colors" value="orange">Orange</span></li>
+                    <li><span><input class="myCheck" type="checkbox" name="colors" value="green">Gree</span>n</li>
+                    <li><span><input class="myCheck" type="checkbox" name="colors" value="purple">Purple</span></li>
+                    <li><span><input class="myCheck" type="checkbox" name="colors" value="pink">Pink</span></li>
+                    <li><span><input class="myCheck" type="checkbox" name="colors" value="magenta">Magenta</span></li>
+                    <li><span><input class="myCheck" type="checkbox" name="colors" value="grey">Grey</span></li>
+                    <li><span><input class="myCheck" type="checkbox" name="colors" value="black">Black</span></li>
+                </ul>
+            </div>
+        </div>
+
+
+
 </body>
 
 
