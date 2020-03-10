@@ -11,14 +11,25 @@
     <script>
         $(document).ready(function () {
             $(".check").click(function () {
-                $(".myCheck").prop("checked", true);
+                $(".checkbox").prop("checked", true);
             });
             $(".uncheck").click(function () {
-                $(".myCheck").prop("checked", false);
+                $(".checkbox").prop("checked", false);
             });
         });
-    </script>
 
+        $("#redBtn").on('click', function () {
+            $('.checkbox').each(function () {
+                if (this.checked === true) {
+                    $('.checkbox:checked').parent().toggleClass('.checkbox').css("background-color", "red");
+                }
+                else {
+                    $('.checkbox:checked').parent().toggleClass('.checkbox').css("background-color", "transparent");
+                };
+            });
+        });
+
+    </script>
     <title>jQuery project</title>
 </head>
 
@@ -38,26 +49,31 @@
         <div class="row justify-content-md-center">
             <div class="col-8">
                 <h3>Input</h3>
-                <button type="button" class="btn btn-primary">Blue</button>
-                <button type="button" class="btn btn-secondary" style="background-color: red">Red</button><br><br>
-                <button type="button" class="btn btn-primary"
-                    style="background-color: yellow; color: black">Yellow</button>
-                <button type="button" class="btn btn-secondary" style="background-color: orange">Orange</button><br><br>
-                <button type="button" class="btn btn-primary" style="background-color: green">Green</button>
-                <button type="button" class="btn btn-secondary" style="background-color: purple">Purple</button><br><br>
-                <button type="button" class="btn btn-primary" style="background-color: pink">Pink</button>
-                <button type="button" class="btn btn-secondary"
-                    style="background-color: magenta">Magenta</button><br><br>
-                <button type="button" class="btn btn-primary" style="background-color: grey">Grey</button>
-                <button type="button" class="btn btn-secondary" style="background-color: black">Black</button><br><br>
+                <button type="button" class="btn btn-primary blue" id="blueBtn">Blue</button>
+                <button type="button" class="btn btn-secondary" style="background-color: red"
+                    id="redBtn">Red</button><br><br>
+                <button type="button" class="btn btn-primary" style="background-color: yellow; color: black"
+                    id="yellowBtn">Yellow</button>
+                <button type="button" class="btn btn-secondary" style="background-color: orange"
+                    id="orangeBtn">Orange</button><br><br>
+                <button type="button" class="btn btn-primary" style="background-color: green"
+                    id="greenBtn">Green</button>
+                <button type="button" class="btn btn-secondary" style="background-color: purple"
+                    id="purpleBtn">Purple</button><br><br>
+                <button type="button" class="btn btn-primary" style="background-color: pink" id="pinkBtn">Pink</button>
+                <button type="button" class="btn btn-secondary" style="background-color: magenta"
+                    id="magentaBtn">Magenta</button><br><br>
+                <button type="button" class="btn btn-primary" style="background-color: grey" id="greyBtn">Grey</button>
+                <button type="button" class="btn btn-secondary" style="background-color: black"
+                    id="blackBtn">Black</button><br><br>
                 <button type="button" class="btn btn-primary btn-lg btn-block">Clear</button><br>
                 <form>
                     <label for="fname">Text</label>
                     <input type="text" id="fname" name="fname" placeholder="Enter something"><input type="submit"
                         value="Apply">
                 </form>
-                <button type="button" class="btn btn-primary check">Remove</button>
-                <button type="button" class="btn btn-secondary uncheck">Restore</button><br><br>
+                <button type="button" class="btn btn-primary">Remove</button>
+                <button type="button" class="btn btn-secondary">Restore</button><br><br>
                 <p>Currently Removed Items: 0</p>
             </div>
 
@@ -66,16 +82,17 @@
                 <button type="button" class="btn btn-primary check">Select All</button>
                 <button type="button" class="btn btn-secondary uncheck">Clear</button>
                 <ul>
-                    <li><span><input class="myCheck" type="checkbox" name="colors" value="blue">Blue</span></li>
-                    <li><span><input class="myCheck" type="checkbox" name="colors" value="red">Red</span></li>
-                    <li><span><input class="myCheck" type="checkbox" name="colors" value="yellow">Yellow</span></li>
-                    <li><span><input class="myCheck" type="checkbox" name="colors" value="orange">Orange</span></li>
-                    <li><span><input class="myCheck" type="checkbox" name="colors" value="green">Gree</span>n</li>
-                    <li><span><input class="myCheck" type="checkbox" name="colors" value="purple">Purple</span></li>
-                    <li><span><input class="myCheck" type="checkbox" name="colors" value="pink">Pink</span></li>
-                    <li><span><input class="myCheck" type="checkbox" name="colors" value="magenta">Magenta</span></li>
-                    <li><span><input class="myCheck" type="checkbox" name="colors" value="grey">Grey</span></li>
-                    <li><span><input class="myCheck" type="checkbox" name="colors" value="black">Black</span></li>
+                    <li><span><input type="checkbox" class="checkbox">1</span></li>
+                    <li><span><input type="checkbox" class="checkbox">2</span></li>
+                    <li><span><input type="checkbox" class="checkbox">3</span></li>
+                    <li><span><input type="checkbox" class="checkbox">4</span></li>
+                    <li><span><input type="checkbox" class="checkbox">5</span></li>
+                    <li><span><input type="checkbox" class="checkbox">6</span></li>
+                    <li><span><input type="checkbox" class="checkbox">7</span></li>
+                    <li><span><input type="checkbox" class="checkbox">8</span></li>
+                    <li><span><input type="checkbox" class="checkbox">9</span></li>
+                    <li><span><input type="checkbox" class="checkbox">10</span></li>
+
                 </ul>
             </div>
         </div>
