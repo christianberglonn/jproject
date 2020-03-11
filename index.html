@@ -11,11 +11,11 @@
     <script>
 
         $(document).ready(function () {
-            let count = 0;
-            let removed;
-            let liItems = $("li");
-            let parent = liItems.parent();
-            let index = parent.children().index(liItems);
+            var count = 0;
+            var removed;
+            var liItems = $("li");
+            var parent = liItems.parent();
+            var index = parent.children().index(liItems);
 
             $(".check").click(function () {
                 $(".checkbox").prop("checked", true);
@@ -37,11 +37,7 @@
                     else {
                         $(this).parent().toggleClass('.checkbox').css("background-color", "transparent");
                     };
-
-
                 });
-
-
             });
 
             $(".applyText:button").click(function () {
@@ -53,12 +49,13 @@
             $(".removeB").click(function () {
                 removed = $("li").has("input:checked").detach();
                 $("#counterNr").text(count += removed.length);
-                console.log(removed);
+                console.log("The items are now removed.");
             });
 
             $(".restoreB").click(function () {
                 $("#counterNr").text(count = 0);
                 parent.prepend(liItems);
+                console.log("The items are now restored.")
             });
         });
 
@@ -108,7 +105,8 @@
 
                 <button type="button" class="btn btn-primary removeB">Remove</button>
                 <button type="button" class="btn btn-secondary restoreB">Restore</button><br><br>
-                <p id="counterNr"></p>
+                <h4>The number of removed items are:<p id="counterNr"></p>
+                </h4>
             </div>
 
             <div class="col-4">
