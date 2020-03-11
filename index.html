@@ -9,9 +9,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script>
-        var liList = $('li');
 
         $(document).ready(function () {
+            let count = 0;
+            let removed;
+            let liItems = $("li");
+            let parent = liItems.parent();
+            let index = parent.children().index(liItems);
+
             $(".check").click(function () {
                 $(".checkbox").prop("checked", true);
             });
