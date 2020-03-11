@@ -9,6 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script>
+        var liList = $('li');
+
         $(document).ready(function () {
             $(".check").click(function () {
                 $(".checkbox").prop("checked", true);
@@ -17,22 +19,43 @@
                 $(".checkbox").prop("checked", false);
             });
 
-        $(".color-button").on('click', function () {
-            
-            var color = $(this).attr("button-color");
+            $(".color-button").on('click', function () {
 
-            $('.checkbox').each(function () {
-                if (this.checked === true) {
-                    $(this).parent().parent().toggleClass('.checkbox').css("background-color", color);
-                }
-                else {
-                    $(this).parent().parent().toggleClass('.checkbox').css("background-color", "transparent");
-                };
+                $("input:checked").css("background-color", "red");
+
+                var color = $(this).attr("button-color");
+
+                $('.checkbox').each(function () {
+                    if (this.checked === true) {
+                        $(this).parent().toggleClass('.checkbox').css("background-color", color);
+                    }
+                    else {
+                        $(this).parent().toggleClass('.checkbox').css("background-color", "transparent");
+                    };
+
+
+                });
+
+
+            });
+
+            $(".applyText:button").click(function () {
+                var inputFtext = $('.inputBox').val();
+                $("input:checked + span").text(inputFtext);
+            });
+
+
+            $(".removeB").click(function () {
+                removed = $("li").has("input:checked").detach();
+                $("#counterNr").text(count += removed.length);
+                console.log(removed);
+            });
+
+            $(".restoreB").click(function () {
+                $("#counterNr").text(count = 0);
+                parent.prepend(liItems);
             });
         });
-    });
-        
-
 
     </script>
     <title>jQuery project</title>
@@ -54,32 +77,33 @@
         <div class="row justify-content-md-center">
             <div class="col-8">
                 <h3>Input</h3>
-                <button type="button" button-color="blue" class="btn btn-primary blue color-button" id="blueBtn">Blue</button>
-                <button type="button" button-color="red" class="btn btn-secondary color-button" style="background-color: red"
-                    id="redBtn">Red</button><br><br>
-                <button type="button" button-color="yellow" class="btn btn-primary color-button" style="background-color: yellow; color: black"
-                    id="yellowBtn">Yellow</button>
-                <button type="button" button-color="orange" class="btn btn-secondary color-button" style="background-color: orange"
-                    id="orangeBtn">Orange</button><br><br>
-                <button type="button" button-color="green" class="btn btn-primary color-button" style="background-color: green"
-                    id="greenBtn">Green</button>
-                <button type="button" button-color="purple" class="btn btn-secondary color-button" style="background-color: purple"
-                    id="purpleBtn">Purple</button><br><br>
-                <button type="button" button-color="pink" class="btn btn-primary color-button" style="background-color: pink" id="pinkBtn">Pink</button>
-                <button type="button" button-color="magenta" class="btn btn-secondary color-button" style="background-color: magenta"
-                    id="magentaBtn">Magenta</button><br><br>
-                <button type="button" button-color="grey" class="btn btn-primary color-button" style="background-color: grey" id="greyBtn">Grey</button>
-                <button type="button" button-color="black" class="btn btn-secondary color-button" style="background-color: black"
-                    id="blackBtn">Black</button><br><br>
+                <button type="button" button-color="blue" class="btn btn-primary blue color-button"
+                    id="blueBtn">Blue</button>
+                <button type="button" button-color="red" class="btn btn-secondary color-button"
+                    style="background-color: red" id="redBtn">Red</button><br><br>
+                <button type="button" button-color="yellow" class="btn btn-primary color-button"
+                    style="background-color: yellow; color: black" id="yellowBtn">Yellow</button>
+                <button type="button" button-color="orange" class="btn btn-secondary color-button"
+                    style="background-color: orange" id="orangeBtn">Orange</button><br><br>
+                <button type="button" button-color="green" class="btn btn-primary color-button"
+                    style="background-color: green" id="greenBtn">Green</button>
+                <button type="button" button-color="purple" class="btn btn-secondary color-button"
+                    style="background-color: purple" id="purpleBtn">Purple</button><br><br>
+                <button type="button" button-color="pink" class="btn btn-primary color-button"
+                    style="background-color: pink" id="pinkBtn">Pink</button>
+                <button type="button" button-color="magenta" class="btn btn-secondary color-button"
+                    style="background-color: magenta" id="magentaBtn">Magenta</button><br><br>
+                <button type="button" button-color="grey" class="btn btn-primary color-button"
+                    style="background-color: grey" id="greyBtn">Grey</button>
+                <button type="button" button-color="black" class="btn btn-secondary color-button"
+                    style="background-color: black" id="blackBtn">Black</button><br><br>
                 <button type="button" class="btn btn-primary btn-lg btn-block color-button">Clear</button><br>
-                <form>
-                    <label for="fname">Text</label>
-                    <input type="text" id="fname" name="fname" placeholder="Enter something"><input type="submit"
-                        value="Apply">
-                </form>
-                <button type="button" class="btn btn-primary">Remove</button>
-                <button type="button" class="btn btn-secondary">Restore</button><br><br>
-                <p>Currently Removed Items: 0</p>
+
+
+
+                <button type="button" class="btn btn-primary removeB">Remove</button>
+                <button type="button" class="btn btn-secondary restoreB">Restore</button><br><br>
+                <p id="counterNr"></p>
             </div>
 
             <div class="col-4">
@@ -87,21 +111,23 @@
                 <button type="button" class="btn btn-primary check">Select All</button>
                 <button type="button" class="btn btn-secondary uncheck">Clear</button>
                 <ul>
-                    <li><span><input type="checkbox" class="checkbox">1</span></li>
-                    <li><span><input type="checkbox" class="checkbox">2</span></li>
-                    <li><span><input type="checkbox" class="checkbox">3</span></li>
-                    <li><span><input type="checkbox" class="checkbox">4</span></li>
-                    <li><span><input type="checkbox" class="checkbox">5</span></li>
-                    <li><span><input type="checkbox" class="checkbox">6</span></li>
-                    <li><span><input type="checkbox" class="checkbox">7</span></li>
-                    <li><span><input type="checkbox" class="checkbox">8</span></li>
-                    <li><span><input type="checkbox" class="checkbox">9</span></li>
-                    <li><span><input type="checkbox" class="checkbox">10</span></li>
+                    <li><input type="checkbox" class="checkbox"><span></span></li>
+                    <li><input type="checkbox" class="checkbox"><span></span></li>
+                    <li><input type="checkbox" class="checkbox"><span></span></li>
+                    <li><input type="checkbox" class="checkbox"><span></span></li>
+                    <li><input type="checkbox" class="checkbox"><span></span></li>
+                    <li><input type="checkbox" class="checkbox"><span></span></li>
+                    <li><input type="checkbox" class="checkbox"><span></span></li>
+                    <li><input type="checkbox" class="checkbox"><span></span></li>
+                    <li><input type="checkbox" class="checkbox"><span></span></li>
+                    <li><input type="checkbox" class="checkbox"><span></span></li>
 
                 </ul>
+
+                <button type="button" class="btn btn-secondary applyText">Text</button>
+                <input type="text" class="inputBox" name="fname" placeholder="Enter something">
             </div>
         </div>
-
 </body>
 
 
